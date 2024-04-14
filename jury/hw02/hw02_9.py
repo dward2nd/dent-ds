@@ -19,9 +19,7 @@ def main() -> None:
             range(1, 5),
         )
     )
-    jury.evaluate_equal(
-        student_fn, verbose_target_jury=True, verbose_target_student=False
-    )
+    jury.evaluate_equal(student_fn)
 
 
 if __name__ == "__main__":
