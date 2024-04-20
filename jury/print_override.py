@@ -1,5 +1,5 @@
 """
-This module is written for evaluating functions that require students to use `print()`
+This module was written for evaluating functions that require students to use `print()`
 as output instead of returning a value.
 
 You may find an example of how to use this module in the `if __name__ == "__main__":` section.
@@ -35,7 +35,7 @@ def retrieve_prints() -> (str, str):
 
 
 def setup() -> None:
-    # override Python built-in `print()` to return a string instead of
+    # override Python built-in `print()` to push a string into our fake buffer instead of
     # passing the string to standard output
     builtins_print = print
     builtins.print = print_override
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     setup()  # replace `print()` with our fake one
     caller_student()  # call the student's function that print something into student's buffer
     toggle_buffer()  # switch the buffer to print strings to jury's
-    caller_jury()  # call the student's function that print something into student's buffer
+    caller_jury()  # call the jury's function that print something into jury's buffer
     unset()  # restore `print()` to Python built-in's
 
     # read cleaned outputs from both student and jury
