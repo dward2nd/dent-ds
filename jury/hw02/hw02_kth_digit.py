@@ -1,11 +1,12 @@
 from math import log10
+from typing import Iterable
 
 from bbhw.hw02.hw02_kth_digit import kth_digit as student_fn
 from hw.hw02.hw02_kth_digit import kth_digit as jury_fn
 from jury.template import Jury
 
 
-def generate_testcases():
+def generate_testcases() -> Iterable[tuple[int, int]]:
     constraint = range(-1000000, 1000001)
     for n in constraint:
         if n == 0:
@@ -15,7 +16,7 @@ def generate_testcases():
             yield n, k
 
 
-def main():
+def main() -> None:
     jury = Jury("kth_digit", jury_fn, verbose=False)
     jury.set_testcases(generate_testcases())
     jury.evaluate_equal(student_fn)

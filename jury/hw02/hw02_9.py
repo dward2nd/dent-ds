@@ -5,7 +5,7 @@ from bbhw.hw02.hw02_9 import is_overlapped as student_fn
 from jury.template import Jury
 
 
-def main():
+def main() -> None:
     jury = Jury("is_overlapped", jury_fn)
     jury.set_testcases(
         product(

@@ -8,18 +8,21 @@ class Jury:
         fn: Callable,
         testcases: Collection[tuple] | None = None,
         verbose: bool | str = True,
-    ):
+    ) -> None:
         self.name: str = fn_name
         self.jury_fn: Callable = fn
         self.testcases: Collection[tuple] | None = testcases and [*testcases]
         self.verbose: bool = verbose
 
-    def set_testcases(self, testcases: Collection[tuple] | None):
+    def set_testcases(self, testcases: Collection[tuple] | None) -> None:
         self.testcases = testcases and [*testcases]
 
     @staticmethod
     def check_verbose_target(
-        current_jury, current_student, target_jury=None, target_student=None
+        current_jury,
+        current_student,
+        target_jury: Any | None = None,
+        target_student: Any | None = None,
     ) -> bool:
         filter_jury = target_jury is None or target_jury == current_jury
         filter_student = (
@@ -30,9 +33,9 @@ class Jury:
     def evaluate_equal(
         self,
         student_fn: Callable,
-        verbose_target_jury=None,
-        verbose_target_student=None,
-    ):
+        verbose_target_jury: Any | None = None,
+        verbose_target_student: Any | None = None,
+    ) -> None:
         if self.testcases is None:
             print("Please set testcases first")
 
