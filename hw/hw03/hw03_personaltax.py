@@ -2,9 +2,9 @@ import math
 
 
 def personal_income_tax(
-    income: float, witholding: float, deductable: float
+    income: float, withholding: float, deductible: float
 ) -> float:
-    income -= deductable
+    income -= deductible
     tax = 0
 
     if income > 150_000:
@@ -28,20 +28,22 @@ def personal_income_tax(
     if income > 5_000_000:
         tax += (income - 5_000_000) * 0.35
 
-    return tax - witholding
+    return tax - withholding
 
 
-# alternatively
+# #########################
+# ##### Alternatively #####
+# #########################
 def tax_bracket(
     income: float, begin: float, end: float, ratio: float
 ) -> float:
-    return min(end - begin, max(0, income - begin)) * ratio
+    return min(end - begin, max(0.0, income - begin)) * ratio
 
 
 def personal_income_tax_alt(
-    income: float, witholding: float, deductable: float
+    income: float, withholding: float, deductible: float
 ) -> float:
-    income -= deductable
+    income -= deductible
 
     return (
         tax_bracket(income, 150_000, 300_000, 0.05)
@@ -53,7 +55,7 @@ def personal_income_tax_alt(
         + tax_bracket(income, 5_000_000, math.inf, 0.35)
         # math.inf is infinity implementation from IEEE-754,
         # representing infinity number
-    ) - witholding
+    ) - withholding
 
 
 if __name__ == "__main__":

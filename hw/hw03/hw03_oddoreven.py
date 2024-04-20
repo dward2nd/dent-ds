@@ -16,5 +16,5 @@ def odd_or_even(n: int) -> str:
 
 
 if __name__ == "__main__":
-    n = int(input())
-    print(odd_or_even(n))
+    x = int(input())
+    print(odd_or_even(x))

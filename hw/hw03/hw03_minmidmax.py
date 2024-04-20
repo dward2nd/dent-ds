@@ -1,4 +1,4 @@
-def min_mid_max(a: float, b: float, c: float) -> float:
+def min_mid_max(a: float, b: float, c: float) -> tuple[float, float, float]:
     # assume that initially min := a, mid := b, max := c
     # I use mn as min, mx as max to avoid conflict with actual Python functions
     # called min() and max()
@@ -21,5 +21,5 @@ def min_mid_max(a: float, b: float, c: float) -> float:
 
 
 if __name__ == "__main__":
-    a, b, c = [int(x) for x in input().split()]
-    print(min_mid_max(a, b, c))
+    x, y, z = [int(x) for x in input().split()]
+    print(min_mid_max(x, y, z))

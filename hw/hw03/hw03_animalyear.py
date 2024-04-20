@@ -56,5 +56,5 @@ def animal_year_name_alternative(n: int) -> str:
 
 
 if __name__ == "__main__":
-    n = int(input())
-    print(animal_year_name(n))
+    x = int(input())
+    print(animal_year_name(x))
