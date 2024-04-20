@@ -37,7 +37,9 @@ class Jury:
         verbose_target_student: Any | None = None,
     ) -> None:
         if self.testcases is None:
-            print("Please set testcases first")
+            raise Exception(
+                "Please set testcases first before calling evaluate_equal()"
+            )
 
         full_score = len(self.testcases)
         score = 0
